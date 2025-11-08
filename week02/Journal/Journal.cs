@@ -6,7 +6,6 @@ public class Journal
     public List<String> _userAnswerList = new List<String>();
     public PromptGenerator _newPromptGenerator = new PromptGenerator();
     public DateLoader _newDateLoader = new DateLoader();
-
     public void AskQuestionAndSaveAnswer()
     {
         string prompt;
@@ -18,7 +17,7 @@ public class Journal
         Console.Write("> ");
         userAnswer = Console.ReadLine();
 
-        dateText = _newDateLoader.getDateText();
+        dateText = _newDateLoader.GetDateText();
 
         SaveAnswer($"Date: {dateText}\nPrompt: {prompt}\n{userAnswer}");
     }
@@ -37,12 +36,14 @@ public class Journal
 
     public void AskForFileNameAndSaveToFile()
     {
-        
+        Console.Write("Input filename: ");
+        Utils.SaveFile(Console.ReadLine(), _userAnswerList);
     }
     
     public void AskForFileNameAndLoadFile()
     {
-        
+        Console.Write("Input filename: ");
+        Utils.LoadFile(Console.ReadLine(), _userAnswerList);
     }
 
 }
