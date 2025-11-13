@@ -19,7 +19,7 @@ public class Journal
 
         dateText = _newDateLoader.GetDateText();
 
-        SaveAnswer($"Date: {dateText}\nPrompt: {prompt}\n{userAnswer}");
+        SaveAnswer($"Date: {dateText}\nPrompt: {prompt}\nAnswer: {userAnswer}");
     }
     public void SaveAnswer(string userAnswer)
     {
@@ -28,10 +28,12 @@ public class Journal
 
     public void DisplayAnswerWithPromptAndDate()
     {
+        Console.WriteLine(); // empty line
         foreach (string answer in _userAnswerList)
         {
             Console.WriteLine(answer);
         }
+        Console.WriteLine(); // empty line
     }
 
     public void AskForFileNameAndSaveToFile()

@@ -11,16 +11,27 @@ public class Utils
                 outputFile.WriteLine(line);
             }
         }
+
+        Console.WriteLine($"Successfully saved data into {filename}");
+        Console.WriteLine(); // empty line
     }
     
     public static void LoadFile(string filename, List<string> contentList)
     {
-        string[] lines = System.IO.File.ReadAllLines(filename);
-
-        contentList.Clear();
-        foreach (string line in lines)
+        if (System.IO.File.Exists(filename))
         {
-            contentList.Add(line);
+            string[] lines = System.IO.File.ReadAllLines(filename);
+
+            contentList.Clear();
+            foreach (string line in lines)
+            {
+                contentList.Add(line);
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Sorry, {filename} could not be found, or must have been deleted.");
+            Console.WriteLine(); // empty line
         }
     }
 }
