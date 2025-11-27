@@ -1,6 +1,6 @@
 using System;
 
-public      class Comment
+public class Comment
 {
     private string _author;
     private string _context;
@@ -10,7 +10,6 @@ public      class Comment
         _author = author;
         _context = context;
     }
-    
     public void Display()
     {
         Console.WriteLine($"{_author}: {_context}");

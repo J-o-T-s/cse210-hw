@@ -39,7 +39,7 @@ public class Video
         _comments = comments;
     }
 
-    public string sec2Min(double seconds)
+    private string sec2Min(double seconds)
     {
         int minutes = (int)(seconds / 60);
         int secondsRemaining = (int)(seconds % 60);
